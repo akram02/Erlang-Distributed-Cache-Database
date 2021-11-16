@@ -24,10 +24,10 @@ start_link(Value, LeaseTime) ->
   gen_server:start_link(?MODULE, [Value, LeaseTime], []).
 
 create(Value, LeaseTime) ->
-  sc_sup:start_child(Value, LeaseTime).
+  sc_element_sup:start_child(Value, LeaseTime).
 
 create(Value) ->
-  sc_sup:start_child(Value, ?DEFAULT_LEASE_TIME).
+  sc_element_sup:start_child(Value, ?DEFAULT_LEASE_TIME).
 
 fetch(Pid) ->
   gen_server:call(Pid, fetch).

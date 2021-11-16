@@ -7,7 +7,8 @@ insert(Key, Value) ->
       sc_element:replace(Pid, Value);
     {error, _} ->
       {ok, Pid} = sc_element:create(Value),
-      sc_store:insert(Key, Pid)
+      sc_store:insert(Key, Pid),
+      sc_event:create(Key, Value)
   end.
 
 lookup(Key) ->
