@@ -1,3 +1,4 @@
 /.idea/
 *.beam
 *.iml
+/erl_crash.dump
